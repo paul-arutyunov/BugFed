@@ -56,14 +56,14 @@ int main(int argc, char *argv[])
 	filesize = ftell(fp);
 	fseek(fp,0,SEEK_SET);
 	buf = malloc(filesize+2);
-	printf("Loading buffer:\n");
+	if (debugMode) printf("Loading buffer:\n");
 	for (i=0; i<filesize; i++) {
 		buf[i]=fgetc(fp);
-		putchar(buf[i]);
+		if (debugMode) putchar(buf[i]);
 	}
 	buf[i]=EOF;
 
-	printf("Running...\n");
+	printf("Running...\n\n");
 
 	i=0;
 	pc=0;
@@ -149,7 +149,7 @@ int main(int argc, char *argv[])
 		pc++;
 	}
 
-	printf("\n\n *** \n\n");
+	printf("\n *** \n");
 	fclose(fp);
 	return 0;
 }
