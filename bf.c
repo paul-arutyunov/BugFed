@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #define CELLS	30000
 
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
 	char *filename;
 	extern int i;
 	int found=0;
+	int debugMode=0;
 
 	int obrackets=0;
 	int cbrackets=0;
@@ -34,7 +36,14 @@ int main(int argc, char *argv[])
 
 	filename = argv[1];
 	fp =  fopen(filename,"r+");
- 
+
+	i=0;
+	while (argv[2+i]!=NULL)
+	{
+		if (!strcmp(argv[2+i],"--debug"))
+			debugMode=1;
+	}
+
 	if (fp==NULL) 
 	{
 		printf("Can't open file '%s'\n",filename);
@@ -60,7 +69,7 @@ int main(int argc, char *argv[])
 	pc=0;
 	while ((c=buf[pc])!=EOF)
 	{
-		putchar(c);
+		if (debugMode) putchar(c);
 		switch (c)
 		{
 			case '>':
