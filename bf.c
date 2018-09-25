@@ -96,7 +96,8 @@ int main(int argc, char *argv[])
 				break;
 
 			case ',':
-				cells[i]=getchar();
+				cells[i]=fgetc(stdin);
+				getchar();
 				break;
 
 			case '[':
