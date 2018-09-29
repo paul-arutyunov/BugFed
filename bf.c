@@ -102,22 +102,16 @@ int main(int argc, char *argv[])
 
 			case '[':
 				if (cells[i]==0)
-				{/*
-					while (buf[pc]!=']')
-						pc++;*/
-
+				{
 					found=0;
 					cbrackets=0;
 					obrackets=1;
 					while (!found)
 					{
 						pc++;
-						if (buf[pc]==']') {
-							cbrackets++;
-						}
-						if (buf[pc]=='[') {
-							obrackets++;
-						}
+						if (buf[pc]==']') cbrackets++;
+						if (buf[pc]=='[') obrackets++;
+
 						if (cbrackets==obrackets) found=1;
 					}
 				}
@@ -125,21 +119,16 @@ int main(int argc, char *argv[])
 
 			case ']':
 				if (cells[i]!=0)
-				{/*
-					while (buf[pc]!='[')
-						pc--;*/
+				{
 					found=0;
 					obrackets=0;
 					cbrackets=1;
 					while (!found)
 					{
 						pc--;
-						if (buf[pc]=='[') {
-							obrackets++;
-						}
-						if (buf[pc]==']') {
-							cbrackets++;
-						}
+						if (buf[pc]=='[') obrackets++;
+						if (buf[pc]==']') cbrackets++;
+
 						if (cbrackets==obrackets) found=1;
 					}
 				}
