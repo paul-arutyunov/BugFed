@@ -1,4 +1,4 @@
-/* A simple BF interpreter */
+/* Copyright (C) 2018 Paul Arutyunov */
 
 #include <stdio.h>
 #include <stdlib.h>
