@@ -1,4 +1,5 @@
-/* Copyright (C) 2018 Paul Arutyunov */
+/* A short Brainfuck interpreter */
+/* Wanted to keep it simple */
 
 #include <stdio.h>
 #include <stdlib.h>
